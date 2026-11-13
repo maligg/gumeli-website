@@ -24,10 +24,10 @@ Designed to evoke the stark, cold, architectural minimalism of global high-fashi
 
 ## Featured Models (Edition 2026.01)
 
-1. **AWOR 01 — OMUZ ÇANTASI** (`2.450,00 TL`)
-2. **OKYO 01 — TOTE ÇANTA** (`3.850,00 TL`)
-3. **AWOR 02 — MİNİ ÇANTA** (`1.950,00 TL`)
-4. **OKYO 02 — DERİ ÇANTA** (`3.200,00 TL`)
+1. **GÜMELİ 01** (`2.450,00 TL`)
+2. **GÜMELİ 02** (`3.850,00 TL`)
+3. **GÜMELİ 03** (`1.950,00 TL`)
+4. **GÜMELİ 04** (`3.200,00 TL`)
 
 ---
 
@@ -62,16 +62,14 @@ npm start
 3. Click **Deploy**.
 
 ### 2. Domain & DNS (`gümeli.com.tr`)
-Because `gümeli.com.tr` contains the Turkish character **ü**, the international domain name (IDN) Punycode format must be used for DNS routing:
+Because `gümeli.com.tr` contains the Turkish character **ü**, the international domain name (IDN) Punycode format is used:
 
 - **Unicode Domain**: `gümeli.com.tr`
 - **Punycode (ACE)**: `xn--gmeli-kva.com.tr`
 
-#### Recommended DNS Records:
-| Record Type | Name / Host | Target / Value | TTL |
-| :--- | :--- | :--- | :--- |
-| **A** | `@` | `76.76.21.21` | `3600` (veya Otomatik) |
-| **CNAME** | `www` | `cname.vercel-dns.com.` | `3600` (veya Otomatik) |
+#### Recommended Nameserver Setup:
+- `ns1.vercel-dns.com`
+- `ns2.vercel-dns.com`
 
 ---
 

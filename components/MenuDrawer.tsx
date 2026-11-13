@@ -16,12 +16,10 @@ export default function MenuDrawer({
   if (!isOpen) return null;
 
   const menuItems = [
-    { code: "01", label: "TÜM ÇANTALAR", filter: "ALL" },
-    { code: "02", label: "OMUZ ÇANTALARI", filter: "OMUZ" },
-    { code: "03", label: "TOTE ÇANTALAR", filter: "TOTE" },
-    { code: "04", label: "MİNİ ÇANTALAR", filter: "MİNİ" },
-    { code: "05", label: "EDİTORYAL KAMPANYA", filter: "ALL" },
-    { code: "06", label: "ARŞİV 2026", filter: "ALL" },
+    { code: "01", label: "KOLEKSİYON 01" },
+    { code: "02", label: "EDİSYON 2026" },
+    { code: "03", label: "EDİTORYAL KAMPANYA" },
+    { code: "04", label: "ARŞİV" },
   ];
 
   return (
@@ -53,10 +51,10 @@ export default function MenuDrawer({
               <button
                 key={item.code}
                 onClick={() => {
-                  onSelectCategory(item.filter);
+                  onSelectCategory(item.label);
                   onClose();
                 }}
-                className="group flex items-baseline text-left hover:pl-3 transition-all duration-300"
+                className="group flex items-baseline text-left hover:pl-3 transition-all duration-300 cursor-pointer"
               >
                 <span className="text-[11px] font-mono text-[#0A0A0A]/40 mr-4 tracking-wider">
                   {item.code}
@@ -84,7 +82,7 @@ export default function MenuDrawer({
               </a>
             </div>
             <div className="pt-2 text-[9px] text-[#0A0A0A]/40 tracking-[0.3em]">
-              GÜMELİ OFFICIAL ARCHIVE — EST. 2026
+              GÜMELİ OFFICIAL — EST. 2026
             </div>
           </div>
         </div>

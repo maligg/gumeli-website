@@ -25,8 +25,7 @@ export default function SearchModal({
     ? products.filter(
         (p) =>
           p.name.toLowerCase().includes(query.toLowerCase()) ||
-          p.modelCode.toLowerCase().includes(query.toLowerCase()) ||
-          p.category.toLowerCase().includes(query.toLowerCase())
+          p.modelCode.toLowerCase().includes(query.toLowerCase())
       )
     : [];
 
@@ -40,7 +39,7 @@ export default function SearchModal({
           </span>
           <button
             onClick={onClose}
-            className="text-[11px] font-medium tracking-[0.3em] uppercase hover:opacity-50 transition-opacity"
+            className="text-[11px] font-medium tracking-[0.3em] uppercase hover:opacity-50 transition-opacity cursor-pointer"
           >
             KAPAT ✕
           </button>
@@ -53,7 +52,7 @@ export default function SearchModal({
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="MODEL VEYA KOD ARAYIN (AWOR, OKYO, OMUZ...)"
+            placeholder="MODEL VEYA NUMARA ARAYIN (01, 02, GÜMELİ...)"
             className="w-full bg-transparent text-xl md:text-3xl font-light tracking-[0.2em] uppercase placeholder:text-[#0A0A0A]/30 focus:outline-none text-[#0A0A0A]"
           />
         </div>
@@ -87,7 +86,7 @@ export default function SearchModal({
                   </div>
                   <div>
                     <div className="text-[9px] font-mono text-[#0A0A0A]/50">
-                      {product.modelCode}
+                      NO. {product.modelCode}
                     </div>
                     <div className="text-[10px] tracking-[0.2em] uppercase font-medium mt-1">
                       {product.name}
@@ -105,16 +104,16 @@ export default function SearchModal({
           {!query.trim() && (
             <div>
               <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#0A0A0A]/40 mb-4">
-                POPÜLER MODELLER
+                KOLEKSİYON LİSTESİ
               </p>
               <div className="flex flex-wrap gap-3">
                 {products.map((p) => (
                   <button
                     key={p.id}
                     onClick={() => setQuery(p.modelCode)}
-                    className="border border-[#0A0A0A]/30 px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors"
+                    className="border border-[#0A0A0A]/30 px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors cursor-pointer"
                   >
-                    {p.modelCode}
+                    {p.name}
                   </button>
                 ))}
               </div>
