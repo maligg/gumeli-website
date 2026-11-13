@@ -13,7 +13,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
       {/* High-Fashion Editorial Imagery */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2400&auto=format&fit=crop"
+          src="/images/hero.jpg"
           alt="GÜMELİ COLLECTION 01 Editorial Campaign"
           fill
           priority

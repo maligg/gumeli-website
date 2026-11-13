@@ -8,10 +8,7 @@ export const PRODUCTS: Product[] = [
     category: "EDITION 01",
     price: 2450,
     formattedPrice: "2.450,00 TL",
-    images: [
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1400&auto=format&fit=crop",
-    ],
+    images: ["/images/bag-01.jpg"],
     colors: [
       { name: "Siyah", hex: "#0A0A0A" },
       { name: "Kemik", hex: "#E8E4DC" },
@@ -28,10 +25,7 @@ export const PRODUCTS: Product[] = [
     category: "EDITION 01",
     price: 3850,
     formattedPrice: "3.850,00 TL",
-    images: [
-      "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1400&auto=format&fit=crop",
-    ],
+    images: ["/images/bag-02.jpg"],
     colors: [
       { name: "Siyah", hex: "#0A0A0A" },
       { name: "Taba", hex: "#7A4A33" },
@@ -47,10 +41,7 @@ export const PRODUCTS: Product[] = [
     category: "EDITION 01",
     price: 1950,
     formattedPrice: "1.950,00 TL",
-    images: [
-      "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1400&auto=format&fit=crop",
-    ],
+    images: ["/images/bag-03.jpg"],
     colors: [
       { name: "Siyah", hex: "#0A0A0A" },
       { name: "Krem", hex: "#DDD7CD" },
@@ -67,10 +58,7 @@ export const PRODUCTS: Product[] = [
     category: "EDITION 01",
     price: 3200,
     formattedPrice: "3.200,00 TL",
-    images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1400&auto=format&fit=crop",
-    ],
+    images: ["/images/bag-04.jpg"],
     colors: [
       { name: "Siyah", hex: "#0A0A0A" },
       { name: "Füme", hex: "#5C5C5B" },
