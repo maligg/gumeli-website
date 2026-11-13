@@ -36,17 +36,17 @@ export default function ProductModal({
         className="relative w-full max-w-5xl h-full md:h-auto max-h-[100dvh] md:max-h-[90vh] bg-[#F8F8F6] border border-[#0A0A0A] overflow-y-auto flex flex-col md:flex-row select-none"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
+        {/* Close Button - min 44x44px touch target */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 text-[11px] font-medium tracking-[0.3em] uppercase hover:opacity-50 transition-opacity bg-[#F8F8F6]/80 px-2 py-1 border border-[#0A0A0A]"
+          className="absolute top-3 right-3 md:top-4 md:right-4 z-20 min-h-[44px] min-w-[44px] flex items-center justify-center text-[11px] font-medium tracking-[0.3em] uppercase hover:opacity-50 transition-opacity bg-[#F8F8F6]/90 px-3 py-2 border border-[#0A0A0A] focus:outline-none focus-visible:ring-1 focus-visible:ring-black touch-manipulation cursor-pointer"
           aria-label="Kapat"
         >
           KAPAT ✕
         </button>
 
         {/* Left: Product Images Gallery */}
-        <div className="w-full md:w-1/2 bg-[#EFECE6] border-b md:border-b-0 md:border-r border-[#0A0A0A] relative min-h-[380px] md:min-h-[560px]">
+        <div className="w-full md:w-1/2 bg-[#EFECE6] border-b md:border-b-0 md:border-r border-[#0A0A0A] relative min-h-[360px] md:min-h-[560px]">
           <Image
             src={product.images[activeImageIdx] || product.images[0]}
             alt={product.name}
@@ -63,11 +63,12 @@ export default function ProductModal({
                 <button
                   key={idx}
                   onClick={() => setActiveImageIdx(idx)}
-                  className={`w-6 h-6 text-[10px] font-mono border border-[#0A0A0A] transition-colors ${
+                  className={`min-w-[36px] min-h-[36px] flex items-center justify-center text-[10px] font-mono border border-[#0A0A0A] transition-colors focus:outline-none touch-manipulation cursor-pointer ${
                     activeImageIdx === idx
                       ? "bg-[#0A0A0A] text-[#F8F8F6]"
                       : "bg-[#F8F8F6] text-[#0A0A0A] hover:bg-[#0A0A0A]/10"
                   }`}
+                  aria-label={`Görsel ${idx + 1}`}
                 >
                   0{idx + 1}
                 </button>
@@ -77,17 +78,17 @@ export default function ProductModal({
         </div>
 
         {/* Right: Product Details & Purchase Action */}
-        <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-between">
+        <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col justify-between">
           <div>
             <div className="text-[10px] font-mono tracking-[0.25em] text-[#0A0A0A]/50 uppercase mb-2">
-              {product.modelCode}
+              NO. {product.modelCode}
             </div>
 
             <h2 className="text-base md:text-lg font-normal tracking-[0.25em] uppercase text-[#0A0A0A] mb-3">
               {product.name}
             </h2>
 
-            <div className="text-sm md:text-base font-light tracking-[0.15em] text-[#0A0A0A] mb-8 pb-4 border-b border-[#0A0A0A]">
+            <div className="text-sm md:text-base font-light tracking-[0.15em] text-[#0A0A0A] mb-6 md:mb-8 pb-4 border-b border-[#0A0A0A]">
               {product.formattedPrice}
             </div>
 
@@ -99,7 +100,7 @@ export default function ProductModal({
             </div>
 
             {/* Technical Specifications */}
-            <div className="space-y-2 text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/70 mb-8 border-t border-b border-[#0A0A0A]/15 py-4">
+            <div className="space-y-2 text-[10px] tracking-[0.2em] uppercase text-[#0A0A0A]/70 mb-6 md:mb-8 border-t border-b border-[#0A0A0A]/15 py-4">
               <div className="flex justify-between">
                 <span>MATERYAL</span>
                 <span className="font-medium text-[#0A0A0A]">{product.material}</span>
@@ -114,28 +115,34 @@ export default function ProductModal({
               </div>
             </div>
 
-            {/* Color Selector */}
-            <div className="mb-8">
-              <div className="flex justify-between text-[11px] tracking-[0.25em] uppercase mb-3">
+            {/* Color Selector with accessible touch targets */}
+            <div className="mb-6 md:mb-8">
+              <div className="flex justify-between text-[11px] tracking-[0.25em] uppercase mb-2">
                 <span>RENK:</span>
                 <span className="font-medium">{selectedColor.name}</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center -ml-2 space-x-1">
                 {product.colors.map((color) => (
                   <button
                     key={color.name}
+                    type="button"
                     onClick={() => setSelectedColor(color)}
-                    className={`w-6 h-6 rounded-none transition-all ${
-                      selectedColor.name === color.name
-                        ? "scale-110 ring-2 ring-[#0A0A0A] ring-offset-2 ring-offset-[#F8F8F6]"
-                        : "opacity-70 hover:opacity-100"
-                    }`}
-                    style={{
-                      backgroundColor: color.hex,
-                      border: "1px solid rgba(0,0,0,0.25)",
-                    }}
-                    title={color.name}
-                  />
+                    aria-label={`Renk Seçimi: ${color.name}`}
+                    className="w-10 h-10 flex items-center justify-center focus:outline-none focus-visible:ring-1 focus-visible:ring-black touch-manipulation cursor-pointer"
+                  >
+                    <span
+                      className={`w-6 h-6 block rounded-none transition-all pointer-events-none ${
+                        selectedColor.name === color.name
+                          ? "scale-110 ring-2 ring-[#0A0A0A] ring-offset-2 ring-offset-[#F8F8F6]"
+                          : "opacity-70 hover:opacity-100"
+                      }`}
+                      style={{
+                        backgroundColor: color.hex,
+                        border: "1px solid rgba(0,0,0,0.25)",
+                      }}
+                      title={color.name}
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -148,7 +155,7 @@ export default function ProductModal({
                 onAddToCart(product, selectedColor);
                 onClose();
               }}
-              className="w-full py-4 bg-[#0A0A0A] text-[#F8F8F6] text-[11px] font-medium tracking-[0.35em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none focus:outline-none"
+              className="w-full min-h-[48px] py-4 bg-[#0A0A0A] text-[#F8F8F6] text-[11px] font-medium tracking-[0.35em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-black touch-manipulation cursor-pointer"
             >
               SEPETE EKLE — {product.formattedPrice}
             </button>

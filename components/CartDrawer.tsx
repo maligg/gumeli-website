@@ -41,23 +41,24 @@ export default function CartDrawer({
         onClick={onClose}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-4 sm:pl-10">
         <div className="w-screen max-w-md bg-[#F8F8F6] border-l border-[#0A0A0A] flex flex-col justify-between shadow-none select-none">
           {/* Cart Header */}
-          <div className="p-6 border-b border-[#0A0A0A] flex items-center justify-between">
+          <div className="p-4 sm:p-6 border-b border-[#0A0A0A] flex items-center justify-between">
             <h2 className="text-[12px] font-medium tracking-[0.35em] uppercase text-[#0A0A0A]">
               SEPET ({items.reduce((acc, i) => acc + i.quantity, 0)})
             </h2>
             <button
               onClick={onClose}
-              className="text-[11px] font-normal tracking-[0.3em] uppercase hover:opacity-50 transition-opacity"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-end text-[11px] font-normal tracking-[0.3em] uppercase hover:opacity-50 transition-opacity focus:outline-none focus-visible:ring-1 focus-visible:ring-black touch-manipulation cursor-pointer"
+              aria-label="Sepeti Kapat"
             >
               KAPAT ✕
             </button>
           </div>
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto divide-y divide-[#0A0A0A]/15 p-6">
+          <div className="flex-1 overflow-y-auto divide-y divide-[#0A0A0A]/15 p-4 sm:p-6">
             {items.length === 0 ? (
               <div className="py-20 text-center">
                 <p className="text-[11px] font-light tracking-[0.3em] uppercase text-[#0A0A0A]/60 mb-6">
@@ -65,7 +66,7 @@ export default function CartDrawer({
                 </p>
                 <button
                   onClick={onClose}
-                  className="border border-[#0A0A0A] text-[10px] tracking-[0.3em] uppercase px-6 py-2.5 hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors"
+                  className="min-h-[44px] border border-[#0A0A0A] text-[10px] tracking-[0.3em] uppercase px-6 py-2.5 hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors touch-manipulation cursor-pointer"
                 >
                   ALIŞVERİŞE DÖN
                 </button>
@@ -92,8 +93,9 @@ export default function CartDrawer({
                         </h4>
                         <button
                           onClick={() => onRemoveItem(idx)}
-                          className="text-[10px] text-[#0A0A0A]/50 hover:text-[#0A0A0A] transition-colors"
+                          className="min-w-[36px] min-h-[36px] flex items-center justify-center text-[12px] text-[#0A0A0A]/50 hover:text-[#0A0A0A] transition-colors touch-manipulation cursor-pointer"
                           title="Sil"
+                          aria-label="Ürünü Sil"
                         >
                           ✕
                         </button>
@@ -104,18 +106,20 @@ export default function CartDrawer({
                     </div>
 
                     <div className="flex justify-between items-center mt-3">
-                      {/* Quantity Controls */}
+                      {/* Quantity Controls with accessible touch targets */}
                       <div className="flex items-center border border-[#0A0A0A] text-[10px]">
                         <button
                           onClick={() => onUpdateQuantity(idx, -1)}
-                          className="px-2 py-0.5 hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors"
+                          className="w-8 h-8 flex items-center justify-center hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors touch-manipulation cursor-pointer"
+                          aria-label="Adeti Azalt"
                         >
                           -
                         </button>
-                        <span className="px-3 py-0.5 font-mono">{item.quantity}</span>
+                        <span className="px-3 py-1 font-mono">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(idx, 1)}
-                          className="px-2 py-0.5 hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors"
+                          className="w-8 h-8 flex items-center justify-center hover:bg-[#0A0A0A] hover:text-[#F8F8F6] transition-colors touch-manipulation cursor-pointer"
+                          aria-label="Adeti Artır"
                         >
                           +
                         </button>
@@ -134,7 +138,7 @@ export default function CartDrawer({
 
           {/* Cart Footer & Checkout */}
           {items.length > 0 && (
-            <div className="p-6 border-t border-[#0A0A0A] bg-[#F8F8F6]">
+            <div className="p-4 sm:p-6 border-t border-[#0A0A0A] bg-[#F8F8F6]">
               <div className="flex justify-between text-[11px] tracking-[0.25em] uppercase mb-2">
                 <span>ARA TOPLAM</span>
                 <span className="font-medium">{formattedTotal} TL</span>
@@ -147,7 +151,7 @@ export default function CartDrawer({
                 onClick={() => {
                   onShowToast("ÖDEME ALTYAPISI AKTİF EDİLİYOR...");
                 }}
-                className="w-full py-4 bg-[#0A0A0A] text-[#F8F8F6] text-[11px] font-medium tracking-[0.35em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none focus:outline-none"
+                className="w-full min-h-[48px] py-4 bg-[#0A0A0A] text-[#F8F8F6] text-[11px] font-medium tracking-[0.35em] uppercase hover:bg-neutral-800 transition-colors duration-200 rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-black touch-manipulation cursor-pointer"
               >
                 SİPARİŞİ TAMAMLA
               </button>
